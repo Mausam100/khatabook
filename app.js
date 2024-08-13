@@ -22,9 +22,17 @@ app.get("/create", (req, res) => {
 
   fs.writeFile(`./files/${fn}`, "aaj ka kaam kaaj", function (err) {
     if (err) return res.send("kuch gad vaad hai");
-    else res.send("sab sahi hai");
+    res.render("create", { file: fn });
   });
 });
+
+app.get("/edit", (req, res) => {
+  fs.readdir(`./files`, function (err, files) {
+    if (err) return res.send("kuch gad vaad hai");
+    res.render("editpage", { files });
+  });
+});
+
 
 // edit files
 app.get("/edit/:filename", (req, res) => {
@@ -53,5 +61,11 @@ app.get("/delete/:filename", (req, res) => {
       res.redirect("/");
     });
   });
+
+
+  app.get("/test-create", (req, res) => {
+    res.render("create", { file: fn });
+  });
+  
 
 app.listen(3000);

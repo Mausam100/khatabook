@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Files</title>
+</head>
+<body>
+
+    <h2>Edit a File</h2>
+
+    <ul>
+      <% files.forEach(function(file) { %>
+        <li>
+          <a href="/edit/<%= file %>"><%= file %></a>
+        </li>
+      <% }); %>
+    </ul>
+
+    <a href="/"><button>Home</button></a>
+
+</body>
+</html>
