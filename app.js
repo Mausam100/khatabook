@@ -20,12 +20,12 @@ app.get("/create", (req, res) => {
   const year = today.getFullYear();
   const fn = `${day}-${month}-${year}.txt`;
 
-  fs.writeFile(`./files/${fn}`, "aaj ka kaam kaaj", function (err) {
+  fs.writeFile(`./files/${fn}`, "", function (err) {
     if (err) return res.send("kuch gad vaad hai");
     res.render("create", { file: fn });
   });
 });
-
+// edit page for all file
 app.get("/edit", (req, res) => {
   fs.readdir(`./files`, function (err, files) {
     if (err) return res.send("kuch gad vaad hai");
